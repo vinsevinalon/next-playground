@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { SmoothScrollDemo } from "@/components/smooth-scroll-demo";
 
 interface Feature {
   title: string;
@@ -35,7 +36,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="p-8 pb-20 gap-16 sm:p-20">
+      <div id="hero" className="p-8 pb-20 gap-16 sm:p-20">
         <main className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
@@ -43,7 +44,7 @@ export default function Home() {
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               A modern web development portfolio built with Next.js 15, TypeScript, and ShadCN UI components. 
-              Showcasing beautiful, accessible, and performant web solutions.
+              Showcasing beautiful, accessible, and performant web solutions with Lenis smooth scrolling.
             </p>
             <div className="flex gap-4 justify-center">
               <Button size="lg" asChild>
@@ -55,8 +56,21 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Smooth Scroll Demo */}
+          <Card className="mb-16">
+            <CardHeader>
+              <CardTitle>Lenis Smooth Scroll Demo</CardTitle>
+              <CardDescription>
+                Experience buttery smooth scrolling powered by Lenis library
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <SmoothScrollDemo />
+            </CardContent>
+          </Card>
+
           {/* Feature Cards */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-16">
+          <div id="features" className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-16">
             {features.map((feature, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
@@ -80,7 +94,7 @@ export default function Home() {
           </div>
 
           {/* Getting Started Section */}
-          <Card className="mb-16">
+          <Card id="technologies" className="mb-16">
             <CardHeader>
               <CardTitle>Built With Modern Technologies</CardTitle>
               <CardDescription>
@@ -96,6 +110,7 @@ export default function Home() {
                     <li>• TypeScript for type safety</li>
                     <li>• Tailwind CSS for styling</li>
                     <li>• ShadCN UI for accessible components</li>
+                    <li>• Lenis for smooth scrolling</li>
                   </ul>
                 </div>
                 <div>
@@ -132,7 +147,7 @@ export default function Home() {
           </Card>
 
           {/* Call to Action */}
-          <Card className="text-center bg-secondary">
+          <Card id="cta" className="text-center bg-secondary">
             <CardHeader>
               <CardTitle className="text-2xl">Ready to Work Together?</CardTitle>
               <CardDescription className="text-lg">
