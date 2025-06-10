@@ -1,103 +1,160 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <main className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <Image
+            className="dark:invert mx-auto mb-8"
+            src="/next.svg"
+            alt="Next.js logo"
+            width={180}
+            height={38}
+            priority
+          />
+          <h1 className="text-4xl font-bold mb-4">Welcome to Next.js with ShadCN UI</h1>
+          <p className="text-lg text-muted-foreground mb-8">
+            A modern web development stack with beautiful, accessible components
+          </p>
+        </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12">
+          <Card>
+            <CardHeader>
+              <CardTitle>Next.js 15</CardTitle>
+              <CardDescription>
+                The React framework for production with App Router
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Server-side rendering, static site generation, and more out of the box.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>ShadCN UI</CardTitle>
+              <CardDescription>
+                Beautiful, accessible components built with Radix UI
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Copy and paste components that are customizable and accessible.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Tailwind CSS</CardTitle>
+              <CardDescription>
+                Utility-first CSS framework for rapid UI development
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Build modern designs without ever leaving your HTML.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>Get Started</CardTitle>
+            <CardDescription>
+              Ready to build something amazing? Here&apos;s how to get started.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ol className="list-decimal list-inside space-y-2 text-sm">
+              <li>
+                Edit{" "}
+                <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">
+                  src/app/page.tsx
+                </code>{" "}
+                to customize this page
+              </li>
+              <li>Add more ShadCN components with <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">npx shadcn@latest add [component]</code></li>
+              <li>Build your application with type safety and modern tooling</li>
+            </ol>
+          </CardContent>
+          <CardFooter className="flex gap-4">
+            <Button asChild>
+              <a
+                href="https://nextjs.org/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Next.js Docs
+              </a>
+            </Button>
+            <Button variant="outline" asChild>
+              <a
+                href="https://ui.shadcn.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ShadCN UI Docs
+              </a>
+            </Button>
+          </CardFooter>
+        </Card>
+
+        <footer className="flex gap-6 flex-wrap items-center justify-center mt-16 pt-8 border-t">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://nextjs.org/learn"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              aria-hidden
+              src="/file.svg"
+              alt="File icon"
+              width={16}
+              height={16}
             />
-            Deploy now
+            Learn
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://vercel.com/templates?framework=next.js"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read our docs
+            <Image
+              aria-hidden
+              src="/window.svg"
+              alt="Window icon"
+              width={16}
+              height={16}
+            />
+            Examples
           </a>
-        </div>
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://nextjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              aria-hidden
+              src="/globe.svg"
+              alt="Globe icon"
+              width={16}
+              height={16}
+            />
+            Go to nextjs.org →
+          </a>
+        </footer>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
