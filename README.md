@@ -1,4 +1,4 @@
-# Next.js with ShadCN UI
+# Next Playground
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and enhanced with [ShadCN UI](https://ui.shadcn.com) components.
 
