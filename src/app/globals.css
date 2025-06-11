@@ -144,3 +144,474 @@ html.lenis body {
   transition-duration: 1ms;
   transition-behavior: allow-discrete;
 }
+
+/* Playground Animation Styles */
+
+/* Base Animation Classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typography Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(30px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05) translateY(-10px);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.95) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes textShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes letterBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Apply Typography Animations */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.animate-rotate-in {
+  animation: rotateIn 0.8s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 1s ease-out forwards;
+}
+
+.animate-text-shimmer {
+  background-size: 200% auto;
+  animation: textShimmer 3s linear infinite;
+}
+
+.animate-letter {
+  animation: letterBounce 1s ease-in-out forwards;
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 3px solid;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), bounceSubtle 2s ease-in-out 3s infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 2s ease-in-out infinite;
+}
+
+/* Card Transition Effects */
+.card-lift {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-lift:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.card-tilt {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(7deg) rotateY(7deg) scale(1.02);
+}
+
+.card-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #ff006e);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+  transition: opacity 0.3s ease;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.card-scale-rotate {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-scale-rotate:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.card-slide {
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card-slide .slide-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%);
+  color: white;
+  font-weight: 600;
+  border-radius: inherit;
+}
+
+.card-slide:hover .slide-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card-flip {
+  perspective: 1000px;
+  height: 250px;
+  width: 100%;
+}
+
+.card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card-flip:hover .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.card-flip-front,
+.card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem;
+}
+
+.card-flip-front {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.card-flip-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+
+/* Performance Card Animation */
+.performance-card {
+  transition: all 0.3s ease;
+}
+
+.performance-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff);
+  transform-origin: 0%;
+  z-index: 9999;
+}
+
+/* Parallax Elements */
+.parallax-element {
+  will-change: transform;
+  transform: translateZ(0); /* Enable hardware acceleration */
+  backface-visibility: hidden;
+}
+
+/* Enhanced Parallax Backgrounds */
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.parallax-shape {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .animate-on-scroll {
+    transform: translateY(20px);
+  }
+  
+  .card-tilt:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+  }
+  
+  .typing-animation {
+    font-size: 1.5rem;
+  }
+  
+  .card-flip {
+    min-height: 200px;
+  }
+  
+  .card-flip-inner,
+  .card-flip-front,
+  .card-flip-back {
+    min-height: 200px;
+  }
+  
+  .parallax-shape {
+    filter: blur(20px);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll,
+  .card-lift,
+  .card-tilt,
+  .card-glow,
+  .card-scale-rotate,
+  .card-slide,
+  .card-flip-inner,
+  .performance-card {
+    transition: none;
+    animation: none;
+  }
+  
+  .animate-text-shimmer,
+  .animate-letter,
+  .typing-animation,
+  .animate-bounce-subtle {
+    animation: none;
+  }
+}
+
+/* Text Reveal Animation */
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-reveal-text.animate-in .text-reveal-word {
+  animation: textReveal 0.6s ease-out forwards;
+}
+
+.text-reveal-word {
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Card Hover Effects */
+.card-lift:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(7deg) rotateY(7deg) scale(1.02);
+}
+
+/* Floating Elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse Animation for Interactive Elements */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(59, 130, 246, 0);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}

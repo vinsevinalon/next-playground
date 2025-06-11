@@ -21,6 +21,7 @@ export function Navigation({ className }: NavigationProps = {}) {
   const navigationItems: NavigationItem[] = [
     { name: "Home", href: "/" },
     { name: "Work", href: "/work" },
+    { name: "Playground", href: "/playground" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
