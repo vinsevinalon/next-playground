@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +18,12 @@ interface NavigationProps {
 
 export function Navigation({ className }: NavigationProps = {}) {
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  // Only update active state after component mounts to prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navigationItems: NavigationItem[] = [
     { name: "Home", href: "/" },
@@ -59,18 +66,18 @@ export function Navigation({ className }: NavigationProps = {}) {
                 href={item.href}
                 className={cn(
                   "transition-colors hover:text-primary focus:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm px-1",
-                  pathname === item.href
+                  mounted && pathname === item.href
                     ? "text-foreground font-medium"
                     : "text-muted-foreground"
                 )}
-                aria-current={pathname === item.href ? "page" : undefined}
+                aria-current={mounted && pathname === item.href ? "page" : undefined}
               >
                 {item.name}
               </Link>
             ))}
           </div>
           
-          <Button asChild>
+          <Button asChild variant="rainbow">
             <Link href="/contact">Get In Touch</Link>
           </Button>
         </div>

@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { LenisProvider } from "@/components/lenis-provider";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { StagewiseToolbar } from "@stagewise/toolbar-next";
+import ReactPlugin from "@stagewise-plugins/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +36,11 @@ export default function RootLayout({
           <ScrollProgress />
           <Navigation />
           {children}
+          <StagewiseToolbar 
+            config={{
+              plugins: [ReactPlugin],
+            }}
+          />
         </LenisProvider>
       </body>
     </html>
