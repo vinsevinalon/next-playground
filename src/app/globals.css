@@ -243,6 +243,26 @@ html.lenis body {
   }
 }
 
+/* Rainbow Gradient Animation for Button */
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Synchronized gradient animation to match text shimmer */
+@keyframes gradient-shimmer-sync {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 @keyframes letterBounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -313,6 +333,11 @@ html.lenis body {
 .animate-text-shimmer {
   background-size: 200% auto;
   animation: textShimmer 3s linear infinite;
+}
+
+.animate-gradient-shimmer-sync {
+  background-size: 400% 400%;
+  animation: gradient-shimmer-sync 3s linear infinite;
 }
 
 .animate-letter {
@@ -860,7 +885,22 @@ html.lenis body {
   }
 }
 
+/* Synchronized gradient animation to match text shimmer */
+@keyframes gradient-shimmer-sync {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 .animate-gradient-x {
   background-size: 200% 200%;
   animation: gradient-x 3s ease infinite;
+}
+
+.animate-gradient-shimmer-sync {
+  background-size: 400% 400%;
+  animation: gradient-shimmer-sync 3s linear infinite;
 }
